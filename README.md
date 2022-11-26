@@ -1,4 +1,4 @@
-## Light Novel
+## ranobe
 A simple extensible scraper to read light novels from different sources.
 
 ### Api
