@@ -1,39 +1,54 @@
+use std::fmt::{Display, Formatter};
 use std::str::FromStr;
+use crate::interface::Source;
 
+#[derive(Debug)]
 pub enum Status {
+    Unknown,
     Ongoing,
     Complete,
     Discontinued,
 }
 
+#[derive(Debug)]
 pub struct Genre {
-    id: u64,
-    name: String,
+    pub id: u64,
+    pub name: String,
 }
 
+pub struct DataSource {
+    pub id: u64,
+    pub name: String,
+    pub slug: String,
+    pub version: u64,
+    pub base_url: String,
+    pub dev_name: String,
+}
+
+#[derive(Debug)]
 pub struct Novel {
     // id of the source
-    source_id: u64,
+    pub source_id: u64,
     // id of the novel
-    id: u64,
-    pub(crate) name: String,
-    cover: String,
-    status: Status,
-    alternate_names: Vec<String>,
-    authors: Vec<String>,
-    genres: Vec<Genre>,
-    url: String,
-    rating: u8,
-    year: u16,
-    chapter_count: u64,
+    pub id: u64,
+    pub name: String,
+    pub cover: String,
+    pub status: Status,
+    pub alternate_names: Vec<String>,
+    pub authors: Vec<String>,
+    pub genres: Vec<Genre>,
+    pub url: String,
+    pub rating: f32,
+    pub year: u16,
+    pub chapter_count: u64,
 }
 
 pub struct Chapter {
-    id: u64,
-    novel_id: u64,
-    url: String,
-    name: String,
-    content: String,
+    pub id: u64,
+    pub novel_id: u64,
+    pub url: String,
+    pub name: String,
+    pub content: String,
 }
 
 impl FromStr for Genre {
@@ -43,25 +58,5 @@ impl FromStr for Genre {
             id: 0,
             name: s.to_string(),
         })
-    }
-}
-
-impl Default for Novel {
-    fn default() -> Self {
-        Novel {
-            source_id: 0,
-            // id of the novel
-            id: 0,
-            name: String::from("NA"),
-            cover: String::from(""),
-            status: Status::Complete,
-            alternate_names: Vec::new(),
-            authors: Vec::new(),
-            genres: Vec::new(),
-            url: String::from(""),
-            rating: 0,
-            year: 0,
-            chapter_count: 0,
-        }
     }
 }
