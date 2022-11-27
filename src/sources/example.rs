@@ -11,7 +11,7 @@ impl Source for Example {
             slug: "".to_string(),
             version: 0,
             base_url: "".to_string(),
-            dev_name: "".to_string()
+            dev_name: "".to_string(),
         }
     }
 

@@ -50,7 +50,7 @@ impl Source for VipNovel {
             let latest_chapter_string = summary.select(&latest_chap_selector).next().unwrap().text().collect::<String>();
             let latest_chapter = u64::from_str(text::parse_int_from_str(&latest_chapter_string)).unwrap_or(0);
 
-            let novel = Novel {
+            result.push(Novel {
                 source_id: self.metadata().id,
                 id,
                 name: text::clean(&name),
@@ -63,8 +63,7 @@ impl Source for VipNovel {
                 rating: score,
                 year: 0,
                 chapter_count: latest_chapter,
-            };
-            result.push(novel);
+            });
         }
 
         result

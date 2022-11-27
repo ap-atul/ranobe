@@ -1,6 +1,5 @@
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
-use crate::interface::Source;
 
 #[derive(Debug)]
 pub enum Status {
