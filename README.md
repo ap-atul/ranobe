@@ -1,9 +1,8 @@
 <div align="center">
-    <h3>Ranobe</h3>
-    <p>A simple extensible scraper to read light novels from different sources.</p>
+    <h2><samp>R.A.N.O.B.E</samp></h2>
+    <samp>A simple extensible scraper to read light novels from different sources.</samp>
 </div>
 
-------------
 
 ### Community
 
